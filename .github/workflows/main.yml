@@ -29,3 +29,11 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+  second-job-run:
+    needs: build-and-run
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo message
+        run: echo "Second job running"
