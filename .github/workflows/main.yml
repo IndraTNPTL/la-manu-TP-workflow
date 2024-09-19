@@ -29,6 +29,12 @@ jobs:
 
       - name: Run tests
         run: npm test
+        
+      - name: Upload coverage to Codecov
+        run: bash <(curl -s https://codecov.io/bash)
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          
 
   second-job-run:
     needs: build-and-run
